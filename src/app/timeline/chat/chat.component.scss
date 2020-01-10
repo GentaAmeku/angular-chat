@@ -1,0 +1,85 @@
+.chat {
+  background: #c2e59c;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+  padding: 16px 32px;
+  > div {
+    &:last-of-type {
+      margin: 0 0 84px 0;
+    }
+  }
+
+  &__container {
+    margin: 0 0 16px 0;
+  }
+
+  &__comment {
+    align-items: center;
+    display: flex;
+
+    &__initial {
+      align-items: center;
+      background: #fafafa;
+      border: 1px solid #bbb;
+      border-radius: 22px;
+      display: flex;
+      font-size: 20px;
+      height: 50px;
+      justify-content: center;
+      margin: 0px;
+      width: 50px;
+    }
+
+    &__info {
+      background: #fafafa;
+      border: 1px solid #bbb;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      padding: 8px 16px;
+      min-height: 45px;
+
+      &__name {
+        color: gray;
+        margin: 0 0 6px 0;
+      }
+
+      &__message {
+        margin: 0px;
+      }
+
+      &:hover {
+        background: lightgoldenrodyellow;
+      }
+
+      &__edit {
+        > input {
+          margin: 0 0 6px 0;
+        }
+      }
+    }
+
+    &__date {
+      display: flex;
+
+      &--reverse {
+        justify-content: flex-end;
+      }
+
+      p {
+        color: #0097A7;
+        font-size: 14px;
+        margin: 0px;
+      }
+    }
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--space {
+      margin: 0 8px 0 0;
+    }
+  }
+}

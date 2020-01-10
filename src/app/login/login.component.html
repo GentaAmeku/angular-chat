@@ -1,0 +1,31 @@
+<div class="login">
+  <div>
+    <h2>ログイン</h2>
+  </div>
+  <ng-container *ngIf="isLoginFailed">
+    <div class="login__alert">
+      <p>メールアドレス、またはパスワードが間違っています。</p>
+    </div>
+  </ng-container>
+  <form class="login__form" [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="login__form--group">
+      <mat-form-field class="login__form--field">
+        <input matInput placeholder="メールアドレス" id="email" formControlName="email">
+        <mat-error *ngIf="email.errors?.email && !email.errors.required">
+          Email アドレスを正しく入力してください。
+        </mat-error>
+        <mat-error *ngIf="email.errors?.required">
+          Emailは<strong>必須</strong>です。
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="login__form--field">
+        <input type="password" matInput placeholder="パスワード" id="password" formControlName="password">
+        <mat-error *ngIf="password.errors?.required">
+          パスワードは<strong>必須</strong>です。
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" class="login__form__submit-button">ログイン</button>
+    <a routerLink="/signup">アカウントを作成する</a>
+  </form>
+</div>

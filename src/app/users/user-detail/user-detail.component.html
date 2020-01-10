@@ -1,0 +1,25 @@
+<div class="user-detail">
+  <div>
+    <h2>プロフィール</h2>
+  </div>
+  <ng-container *ngIf="user">
+    <div class="user-detail__info">
+      <mat-form-field class="user-detail__info__field">
+        <input matInput placeholder="ユーザー名" [value]="user.displayName" id="name">
+      </mat-form-field>
+    </div>
+    <div class="user-detail__info">
+      <mat-form-field class="user-detail__info__field">
+        <input matInput placeholder="メールアドレス" [value]="user.email" id="email">
+      </mat-form-field>
+    </div>
+    <div class="user-detail__info">
+      <mat-form-field class="user-detail__info__field">
+        <input matInput placeholder="ID" [value]="user.uid" id="uid">
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="goBack()">戻る</button>
+    </div>
+  </ng-container>
+</div>

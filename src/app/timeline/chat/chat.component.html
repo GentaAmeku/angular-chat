@@ -1,0 +1,48 @@
+<div class="chat">
+  <ng-container *ngFor="let comment of comments">
+    <div class="chat__container" *ngIf="comment.user.displayName === currentUser.displayName; else anotherUser">
+      <div class="chat__comment chat__comment--reverse">
+        <p class="chat__comment__initial">{{comment.initial}}</p>
+        <div class="chat__comment__info chat__comment--space" (click)="showMenu(comment)" (mouseover)="comment.isHover = true"
+          (mouseleave)="comment.isHover = false">
+          <p class="chat__comment__info__name">{{comment.user.displayName}}</p>
+          <p class="chat__comment__info__message" *ngIf="!comment.isEdit">{{comment.message}}</p>
+          <div *ngIf="comment.isEdit" class="chat__comment__info__edit">
+            <input type="text" [value]="comment.message" (click)="$event.stopPropagation()">
+            <div>
+              <button mat-button (click)="comment.isEdit = false">キャンセル</button>
+              <button mat-button (click)="updateComment(comment.id)">保存</button>
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="comment.isShowMenu">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="startEdit(comment)">編集</button>
+            <button mat-menu-item (click)="startDelete(comment)">削除</button>
+          </mat-menu>
+        </ng-container>
+      </div>
+      <div class="chat__comment__date chat__comment__date--reverse" *ngIf="comment.isHover">
+        <p>{{comment.date | commentDate }}</p>
+      </div>
+    </div>
+    <ng-template #anotherUser>
+      <div class="chat__container">
+        <div class="chat__comment">
+          <p class="chat__comment__initial chat__comment--space">{{comment.initial}}</p>
+          <div class="chat__comment__info" (mouseover)="comment.isHover = true" (mouseleave)="comment.isHover = false">
+            <p class="chat__comment__info__name">{{comment.user.displayName}}</p>
+            <p class="chat__comment__info__message">{{comment.message}}</p>
+          </div>
+        </div>
+        <div class="chat__comment__date" *ngIf="comment.isHover">
+          <p>{{comment.date | commentDate }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+  <app-form [commentsCollection]="commentsCollection" [currentUser]="currentUser"></app-form>
+</div>

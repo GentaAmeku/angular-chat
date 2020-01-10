@@ -1,0 +1,11 @@
+<div class="user-list">
+  <mat-nav-list>
+    <mat-list-item
+      *ngFor="let user of users | async"
+      (click)="goUserDetail(user)"
+    >
+      <mat-icon mat-list-icon>person</mat-icon>
+      <a matLine>{{ user.displayName }}</a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>

@@ -1,0 +1,27 @@
+.form {
+  bottom: 25px;
+  display: flex;
+  position: fixed;
+  width: calc(100% - 365px);
+
+  &__container {
+    align-items: center;
+    background: #fff;
+    border: none;
+    border-radius: 26px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .16), 0 4px 4px 0 rgba(0, 0, 0, .10), 0 3px 3px 0 rgba(0, 0, 0, .08);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 24px;
+    outline: none;
+    resize: none;
+    width: 100%;
+  }
+
+  &__textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    width: 90%;
+  }
+}

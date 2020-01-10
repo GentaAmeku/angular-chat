@@ -1,0 +1,40 @@
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+  &__alert {
+    background-color: #faebeb;
+    border-color: #faebeb;
+    padding: 16px;
+
+    p {
+      color: darkred;
+      margin: 0px;
+    }
+  }
+
+  &__form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+
+    &--group {
+      margin: 0 0 16px 0;
+      width: 100%;
+    }
+
+    &--field {
+      width: 100%;
+    }
+
+    &__submit-button {
+      margin: 0 0 16px 0;
+      min-width: 300px;
+    }
+  }
+}

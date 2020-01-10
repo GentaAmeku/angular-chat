@@ -1,0 +1,49 @@
+<div class="sign-up">
+  <div>
+    <h2>アカウント作成</h2>
+  </div>
+  <ng-container *ngIf="isSignUpFailed">
+    <div class="sign-up__alert">
+      <p>アカウント作成に失敗しました。再度お試しください。</p>
+    </div>
+  </ng-container>
+  <form class="sign-up__form" [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <div class="sign-up__form--group">
+      <mat-form-field class="sign-up__form--field">
+        <input matInput placeholder="ユーザー名" id="name" formControlName="name">
+        <mat-error *ngIf="name.errors?.required">
+          ユーザー名は<strong>必須</strong>です。
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="sign-up__form--field">
+        <input matInput placeholder="メールアドレス" id="email" formControlName="email">
+        <mat-error *ngIf="email.errors?.email && !email.errors.required">
+          Email アドレスを正しく入力してください。
+        </mat-error>
+        <mat-error *ngIf="email.errors?.required">
+          Emailは<strong>必須</strong>です。
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="sign-up__form--field">
+        <input type="password" matInput placeholder="パスワード" id="password" formControlName="password">
+        <mat-error *ngIf="password.errors?.required">
+          パスワードは<strong>必須</strong>です。
+        </mat-error>
+        <mat-error *ngIf="password.errors?.minlength">
+          パスワードは最低6文字必要です。
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="sign-up__form--field">
+        <input type="password" matInput placeholder="確認用パスワード" id="password-confirmation" formControlName="passwordForConfirmation">
+        <mat-error *ngIf="passwordForConfirmation.errors?.required">
+          確認用パスワードは<strong>必須</strong>です。
+        </mat-error>
+        <mat-error *ngIf="passwordForConfirmation.errors?.matchPassword">
+          パスワードが一致しません。
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" class="sign-up__form__submit-button">新規登録</button>
+    <a routerLink="/login">ログインに戻る</a>
+  </form>
+</div>

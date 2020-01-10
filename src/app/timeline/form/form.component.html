@@ -1,0 +1,15 @@
+<div class="form">
+  <div class="form__container">
+    <textarea
+      id="chat"
+      class="form__textarea"
+      name="message"
+      rows="1"
+      placeholder="会話を始めてください…"
+      [(ngModel)]="message"
+    ></textarea>
+    <button mat-icon-button (click)="sendMessage(message)">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>

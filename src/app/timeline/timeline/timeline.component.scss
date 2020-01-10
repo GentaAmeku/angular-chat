@@ -1,0 +1,12 @@
+.timeline {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: 100%;
+
+  &__users {
+    height: 100%;
+  }
+  &__chat {
+    height: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="header">
+  <mat-toolbar role="heading" class="header--elevation">
+    <mat-toolbar-row>
+      <span>Angular Chat</span>
+      <span class="header--spacer"></span>
+      <ng-container *ngIf="isLoginState">
+        <button mat-button (click)="startLogout()">ログアウト</button>
+      </ng-container>
+      <ng-container *ngIf="!isLoginState">
+        <button mat-button (click)="goToLogin()">ログイン</button>
+      </ng-container>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
